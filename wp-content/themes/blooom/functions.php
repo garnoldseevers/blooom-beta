@@ -14,12 +14,9 @@ function theme_enqueue_styles() {
 //
 // Your code goes below
 //
-
-
 function adjust_blooom_theme(){
+	// declare wordpress database as global variable
 	global $wpdb;
-	// show errors for test
-	$wpdb->show_errors( true );
 	// bind the current post's ID to a variable
 	$current_post_id = get_the_ID();
 	// query database for pricing_3 custom field value and bind result to variable using wpdb->prepare in order to prevent sql injection
@@ -48,15 +45,5 @@ function adjust_blooom_theme(){
 }
 // run adjust_blooom_theme() when WordPress runs wp_head()
 add_action( 'wp_head', 'adjust_blooom_theme');
-
-
-function dev_alert($argument){
-	?>
-	<script type="text/javascript">
-		$alert_message = "<?php echo $argument; ?>";
-		alert($alert_message);
-	</script>
-	<?php
-}
 
 ?>
